@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structured Webpage</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #f7f9fc;
+            padding: 24px 32px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 12px 32px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 16px;
+        }
+
+        nav a {
+            color: #f7f9fc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        #main-content {
+            padding: 32px;
+        }
+
+        section.intro {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        article {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        article h2 {
+            margin-top: 0;
+        }
+
+        .highlight {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .interactive-box {
+            background-color: #e8f0ff;
+            border: 1px solid #c5d7ff;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .interactive-box input,
+        .interactive-box button {
+            font-size: 1rem;
+            padding: 10px 14px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #97b1ff;
+        }
+
+        .interactive-box button {
+            background-color: #2c3e50;
+            color: #f7f9fc;
+            cursor: pointer;
+        }
+
+        .interactive-box button:hover {
+            background-color: #1f2f42;
+        }
+
+        aside {
+            background-color: #ffffff;
+            border-left: 4px solid #2c3e50;
+            padding: 20px 24px;
+            margin-top: 24px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #dfe6ef;
+            text-align: center;
+            padding: 18px 32px;
+            margin-top: 32px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Webpage</h1>
+        <p>Clean layout using semantic HTML and CSS selectors.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="main-content">
+        <section class="intro" id="home">
+            <h2>Welcome!</h2>
+            <p>This section introduces the page and explains the purpose of the content.</p>
+        </section>
+
+        <article id="about">
+            <h2 id="article-title">About This Page</h2>
+            <p>Here is an example of an <span class="highlight">article</span> with useful information. It shows how to apply styles using tag, class, and id selectors together.</p>
+            <p id="name-course">Name: <strong>Jerome Kevin D. Fiel</strong> | Course: <strong>Web Development</strong></p>
+            <p>The layout includes a header, navigation, a main section, and a footer to create a balanced page structure.</p>
+            <button id="alert-btn" type="button">Show Alert</button>
+        </article>
+
+        <section class="interactive-box" id="services">
+            <h2>Interactive Input</h2>
+            <label for="user-input">Enter a message:</label><br>
+            <input id="user-input" type="text" placeholder="Type something here...">
+            <p>Input preview: <span id="input-value" class="highlight">(nothing yet)</span></p>
+            <button id="change-content-btn" type="button">Change Content</button>
+        </section>
+
+        <aside>
+            <h2>Related Notes</h2>
+            <p>This aside provides supporting information and quick tips for the main content.</p>
+            <ul>
+                <li>Use semantic HTML for better accessibility.</li>
+                <li>Keep styles simple and consistent.</li>
+                <li>Interact with buttons and input using JavaScript events.</li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Structured Webpage Example</p>
+    </footer>
+
+    <script>
+        const studentName = 'Jerome Kevin D. Fiel';
+        const courseName = 'Web Development Fundamentals';
+        const nameCourseElement = document.getElementById('name-course');
+        const alertButton = document.getElementById('alert-btn');
+        const userInput = document.getElementById('user-input');
+        const inputValue = document.getElementById('input-value');
+        const changeContentButton = document.getElementById('change-content-btn');
+        const articleTitle = document.getElementById('article-title');
+
+        nameCourseElement.textContent = `Name: ${studentName} | Course: ${courseName}`;
+
+        alertButton.addEventListener('click', () => {
+            alert(`Hello ${studentName}! This page is built for the ${courseName} course.`);
+        });
+
+        userInput.addEventListener('input', (event) => {
+            inputValue.textContent = event.target.value || '(nothing yet)';
+        });
+
+        changeContentButton.addEventListener('click', () => {
+            articleTitle.textContent = 'Content Updated Dynamically!';
+            inputValue.textContent = 'Dynamic content change complete.';
+        });
+    </script>
+</body>
+</html>
